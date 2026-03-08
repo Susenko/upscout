@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "UpScout",
+  "version": "0.1.0",
+  "description": "AI Upwork job analyzer",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "https://www.upwork.com/*",
+    "https://www.upwork.com/jobs/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.upwork.com/jobs/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "UpScout"
+  }
+}
